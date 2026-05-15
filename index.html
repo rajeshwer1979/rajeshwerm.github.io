@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rajeshwer Mamidala | Senior UI/UX Designer & Developer</title>
+    <!-- Google Fonts & simple reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #EFF3F6;
+            font-family: 'Inter', sans-serif;
+            color: #1E2A3E;
+            line-height: 1.45;
+            padding: 40px 24px;
+        }
+
+        /* main card container */
+        .cv-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        /* responsive inner layout: two column approach on larger screens */
+        .cv-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* LEFT PANEL — dark/intro section */
+        .sidebar {
+            background: #0F172A;
+            color: #E2E8F0;
+            flex: 1.2;
+            min-width: 280px;
+            padding: 2rem 1.8rem;
+        }
+
+        .main-content {
+            flex: 2.8;
+            background: #FFFFFF;
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        /* profile header in sidebar */
+        .name-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: white;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .badge-exp {
+            display: inline-block;
+            background: #2D3A5E;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #CBD5E1;
+            margin-top: 6px;
+        }
+
+        .contact-section, .skills-section, .education-section, .about-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94A3B8;
+            margin-bottom: 1rem;
+            border-left: 3px solid #3B82F6;
+            padding-left: 12px;
+        }
+
+        .contact-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+            word-break: break-word;
+            color: #CBD5E1;
+        }
+
+        .contact-list li a {
+            color: #CBD5E1;
+            text-decoration: none;
+            transition: 0.2s;
+            word-break: break-all;
+        }
+
+        .contact-list li a:hover {
+            color: #60A5FA;
+        }
+
+        .skill-tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .skill-tag span {
+            background: #1E293B;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            border-radius: 30px;
+            color: #CBD5E1;
+            font-weight: 400;
+        }
+
+        .edu-item {
+            margin-bottom: 1rem;
+        }
+
+        .edu-item p {
+            font-size: 0.85rem;
+            margin-bottom: 2px;
+        }
+
+        /* Main content styling */
+        .summary-highlight {
+            background: #F8FAFE;
+            padding: 1.2rem 1.4rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            border: 1px solid #E9EEF3;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            color: #1E2A3E;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .section-title-main {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0F172A;
+            margin: 1.5rem 0 1rem 0;
+            border-bottom: 3px solid #E2E8F0;
+            padding-bottom: 6px;
+            display: inline-block;
+        }
+
+        .roles-list {
+            list-style: none;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .roles-list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .roles-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #3B82F6;
+            font-weight: 500;
+        }
+
+        .exp-card {
+            margin-bottom: 1.8rem;
+            border-left: 3px solid #3B82F6;
+            padding-left: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .exp-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0F172A;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: #2563EB;
+            font-size: 0.85rem;
+            margin: 5px 0 6px 0;
+        }
+
+        .exp-desc {
+            font-size: 0.88rem;
+            color: #334155;
+            margin-top: 6px;
+            line-height: 1.45;
+        }
+
+        .project-url {
+            font-size: 0.75rem;
+            word-break: break-all;
+            background: #F1F5F9;
+            padding: 3px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 6px;
+            font-family: monospace;
+        }
+
+        .project-url a {
+            color: #1E40AF;
+            text-decoration: none;
+        }
+
+        .clients-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .client-badge {
+            background: #F1F5F9;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1E293B;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: #E2E8F0;
+        }
+
+        @media (max-width: 780px) {
+            body {
+                padding: 16px;
+            }
+            .sidebar, .main-content {
+                flex: 100%;
+                padding: 1.5rem;
+            }
+            .exp-title {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+
+        .portfolio-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .portfolio-links a {
+            background: #1E293B;
+            padding: 6px 14px;
+            border-radius: 24px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #94A3B8;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .portfolio-links a:hover {
+            background: #3B82F6;
+            color: white;
+        }
+        .design-system-block {
+            background: #F8FAFE;
+            padding: 12px;
+            border-radius: 16px;
+            margin-top: 12px;
+        }
+        .inline-code {
+            font-family: monospace;
+            font-size: 0.7rem;
+        }
+        footer {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: #64748B;
+        }
+    </style>
+</head>
+<body>
+<div class="cv-container">
+    <div class="cv-grid">
+        <!-- LEFT SIDEBAR: personal, contact, skills, education -->
+        <div class="sidebar">
+            <div class="name-title">
+                <h1>RAJESHWER MAMIDALA</h1>
+                <div style="margin-top: 6px;">
+                    <span class="badge-exp">Senior UI/UX Designer</span>
+                    <span class="badge-exp" style="margin-left: 6px;">UX Architect</span>
+                    <span class="badge-exp" style="margin-left: 6px;">UX Researcher</span>
+                </div>
+                <p style="font-size:0.8rem; margin-top: 12px; color:#94A3B8;">11+ Years UI/UX · 16+ Years Design</p>
+            </div>
+
+            <div class="contact-section">
+                <div class="section-title">CONTACT</div>
+                <ul class="contact-list">
+                    <li>📞 +91 9912179358</li>
+                    <li>📞 +91 7702769096</li>
+                    <li>✉️ <a href="mailto:rajeshwer.neela@gmail.com">rajeshwer.neela@gmail.com</a></li>
+                    <li>✉️ <a href="mailto:rajuweb1979@gmail.com">rajuweb1979@gmail.com</a></li>
+                    <li>🔗 <a href="https://www.linkedin.com/in/rajeshwer" target="_blank">linkedin.com/in/rajeshwer</a></li>
+                    <li>🎨 <a href="https://www.behance.net/rajeshwerm" target="_blank">behance.net/rajeshwerm</a></li>
+                    <li>⚽ <a href="https://dribbble.com/Rajeshwer1979" target="_blank">dribbble.com/Rajeshwer1979</a></li>
+                    <li>💻 <a href="https://github.com/rajeshwer1979" target="_blank">github.com/rajeshwer1979</a></li>
+                    <li>📺 <a href="https://www.youtube.com/@rajuuiux" target="_blank">Youtube/@rajuuiux</a></li>
+                </ul>
+            </div>
+
+            <div class="skills-section">
+                <div class="section-title">SKILLS & TOOLBOX</div>
+                <div class="skill-tag">
+                    <span>Design Thinking</span><span>Heuristic Evaluation</span><span>User Research</span><span>Persona</span>
+                    <span>Wireframes</span><span>User Flow</span><span>High-Fidelity Prototypes</span><span>Usability Testing</span>
+                    <span>Interaction Design</span><span>Visual Design</span><span>Accessibility</span><span>AI Based Generative UI</span>
+                </div>
+                <div style="margin-top: 15px;"><span class="section-title" style="border-left-color:#94A3B8;">TOOLS</span></div>
+                <div class="skill-tag">
+                    <span>Figma (Plugins)</span><span>Adobe XD</span><span>Axure RP</span><span>Sketch</span><span>InVision</span>
+                    <span>Adobe Creative Suite</span><span>Balsamiq</span><span>HTML5/CSS3</span><span>JavaScript/jQuery</span>
+                    <span>Responsive Design</span><span>SharePoint</span>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <div class="section-title">EDUCATION</div>
+                <div class="edu-item">
+                    <p><strong>MSc (Physics)</strong></p>
+                    <p>Acharya Nagarjuna University CDE - 2006</p>
+                    <p>Guntur, Andhra Pradesh</p>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <div class="section-title">ABOUT</div>
+                <p style="font-size:0.85rem; line-height:1.4;">Self-motivated, learning new things, creative approach to problem solving. Passion for inclusive design and AI-driven interfaces.</p>
+                <div class="portfolio-links" style="margin-top: 12px;">
+                    <a href="#" target="_blank">Portfolio (Behance)</a>
+                    <a href="#" target="_blank">Dribbble</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT MAIN CONTENT: summary, experience, design portfolio references -->
+        <div class="main-content">
+            <!-- Summary block -->
+            <div class="summary-highlight">
+                <div class="summary-text">
+                    <strong>🎯 Senior UI/UX Designer/Developer with 11+ years</strong> of crafting digital experiences with humans at the center. 16+ years total design experience across IT services, e-commerce, healthcare, finance, education, social networks, and business intelligence. 
+                    Extensive hands-on in <strong>AI Based Generative & Intent-Based UI</strong>, UX research, inclusive design, wireframes, high-fidelity prototypes, Axure RP, Figma, Adobe XD. Skilled in user research methods, A/B testing, competitor analysis, and HCI principles.
+                </div>
+                <div class="summary-text" style="margin-bottom:0;">
+                    ✅ Passion for clean, elegant interfaces and strong visual communication. Well-versed in HTML/CSS, responsive frameworks, design tokens, and design systems.
+                </div>
+            </div>
+
+            <!-- Roles & Responsibility Highlights -->
+            <div>
+                <h3 class="section-title-main">🧠 Core Responsibilities</h3>
+                <ul class="roles-list">
+                    <li>Collaborate with UX team, product management, stakeholders to research business & user needs.</li>
+                    <li>Plan & conduct user research: interviews, observation, A/B testing, expert reviews, competitor analysis.</li>
+                    <li>Implement Human-Computer Interaction (HCI) for goal-oriented usability & accessibility.</li>
+                    <li>Create Personas, Heuristic evaluations, Information Architecture, sitemaps, user flows & Customer Journey Maps.</li>
+                    <li>Product vision from sketches, wireframes to high-fidelity functional prototypes & usability testing.</li>
+                    <li>Mastery of typography, color, responsive layout & design tokens; develop into HTML/CSS for web/mobile.</li>
+                </ul>
+            </div>
+
+            <!-- DESIGN EXPERIENCE Timeline -->
+            <h3 class="section-title-main">💼 Design Experience (selected projects)</h3>
+
+            <!-- EMM Project -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Senior Designer <span style="font-weight:normal; font-size:0.75rem; color:#475569;">May 2025 – Present</span></div>
+                <div class="exp-company">Project: EMM | CtrlAltFIX Solutions Pvt Ltd · Device Data Security</div>
+                <div class="exp-desc">MySecureME EMM: Cloud-based Enterprise Mobility Management for Android/iOS fleet. Enroll devices via QR, enforce security policies, manage apps & web access, real-time monitoring. Designed end-to-end web console experience, responsive dashboards, security policy flows.</div>
+                <div class="project-url"><a href="https://ctrlaltfix.co/" target="_blank">🔗 ctrlaltfix.co</a></div>
+            </div>
+
+            <!-- Orion -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Designer <span style="font-weight:normal; font-size:0.75rem; color:#475569;">Oct 2023 – April 2025</span></div>
+                <div class="exp-company">Project: Orion | Techwave Consulting India Pvt Ltd · Data Management</div>
+                <div class="exp-desc">Orion accelerator for Data Migration, Data Governance, Master Data Management (Customer/Vendor Master). Data quality tools, advanced data validation, consistency improvement. Designed intuitive dashboards and data orchestration interfaces.</div>
+                <div class="project-url"><a href="https://oriondev.techwave.net/" target="_blank">https://oriondev.techwave.net/</a></div>
+            </div>
+
+            <!-- GRNconnect Travel -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Designer · B2B Travel Platform</div>
+                <div class="exp-company">Client: Techwave.net · GRNconnect (Hotels, Apartments, Activities, Transfers)</div>
+                <div class="exp-desc">Designed booking portal for hotels, apartments, Eurail tickets, DMC packages. Real-time inventory and round-the-clock customer support integration. High-fidelity responsive designs for B2B travel agencies.</div>
+                <div class="project-url"><a href="https://next.grnconnect.com/" target="_blank">https://next.grnconnect.com/</a></div>
+            </div>
+
+            <!-- EHR Edvak -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Designer (EHR) <span style="font-weight:normal; font-size:0.75rem;">Jan 2022 – Feb 2023</span></div>
+                <div class="exp-company">Edvak Health Pvt Ltd · Healthcare | AI-powered EHR & Practice Management</div>
+                <div class="exp-desc">Electronic Health Record with patient portal, appointments, document sharing, medical history, diagnoses, medications, radiology images. Designed AI-integrated analytics and patient intake flows.</div>
+                <div class="project-url"><a href="http://edvak.com/" target="_blank">edvak.com</a> · <a href="https://www.figma.com/proto/6lWAPrtsEEeboFRBcBhFU3/Patient-Intake-Que" target="_blank">Figma Prototype</a></div>
+            </div>
+
+            <!-- Sancara Shampad EHR -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Designer (EHR Product) <span style="font-weight:normal; font-size:0.75rem;">July 2020 – Jan 2022</span></div>
+                <div class="exp-company">Sancara Shampad Pvt Ltd · ClinicStats</div>
+                <div class="exp-desc">Patient dashboard, provider information, SOAP notes, scheduling, billing, clinical suggestions with analytics. Redesigned admin and patient portal components.</div>
+                <div class="project-url"><a href="https://www.clinistats.com/" target="_blank">clinistats.com</a> | <a href="https://www.clinidhi.com/" target="_blank">clinidhi.com</a></div>
+            </div>
+
+            <!-- Splash BI -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Designer (BI Tool) <span style="font-weight:normal; font-size:0.75rem;">Apr 2018 – Mar 2020</span></div>
+                <div class="exp-company">Splash Business Intelligence Pvt Ltd · Data Reporting</div>
+                <div class="exp-desc">Designed data visualization dashboards, drag-drop reporting, instant access to disparate systems. Enabled organizations to make data-driven decisions with interactive analytics.</div>
+                <div class="project-url"><a href="https://splashbi.com/" target="_blank">splashbi.com/platform</a></div>
+            </div>
+
+            <!-- BVM Consultancy: GST, Education, IT -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Designer (Finance & Education) <span style="font-weight:normal; font-size:0.75rem;">Apr 2015 – Apr 2018</span></div>
+                <div class="exp-company">BVM Consultancy Services Pvt Ltd · GST, CMS, School Discovery</div>
+                <div class="exp-desc">GST Billing & Accounting Software, educational institute portal (Edvantagepoint), APSFL fibernet UI. Custom applications development and responsive interfaces.</div>
+                <div class="project-url"><a href="https://mastergst.com/" target="_blank">mastergst.com</a> · <a href="https://edvantagepoint.com/" target="_blank">edvantagepoint.com</a></div>
+            </div>
+
+            <!-- Dogalize + others quick summary (concisely) -->
+            <div class="exp-card">
+                <div class="exp-title">UI/UX Designer (Social Network / Dogalize) <span>Oct 2014 – Feb 2015</span></div>
+                <div class="exp-company">Bravemount Company Pvt Ltd · Dogalize (Social Network for dogs)</div>
+                <div class="exp-desc">Designed custom software products for responsive web apps and pet social network. Worked on community engagement features and modern UI refresh.</div>
+                <div class="project-url"><a href="https://dogalize.com/" target="_blank">dogalize.com</a></div>
+            </div>
+
+            <!-- Additional roles: Vensoft, Wisdom, Athensys etc -->
+            <div style="margin-top: 0.5rem; background:#F8FAFC; border-radius: 20px; padding: 0.8rem 1rem;">
+                <p style="font-weight:600; font-size:0.85rem;">📌 Earlier Engagements (2011–2014):</p>
+                <div style="display:flex; flex-wrap:wrap; gap: 0.5rem; margin-top: 6px;">
+                    <span class="client-badge">Campnavigator (Vensoft)</span>
+                    <span class="client-badge">Cinesprint</span>
+                    <span class="client-badge">SQLlabs</span>
+                    <span class="client-badge">Wisdom Jobs (Wisdom IT Services)</span>
+                    <span class="client-badge">Veris Consulting (Athensys)</span>
+                    <span class="client-badge">ThemeForest/Envato (Aivah)</span>
+                </div>
+                <div class="exp-desc" style="margin-top: 8px;">✔ Extensive work on employment portals, e-commerce, news portals, custom WordPress themes, and enterprise IT solutions.</div>
+            </div>
+
+            <!-- Design Systems & Client Work Highlights -->
+            <h3 class="section-title-main" style="margin-top: 1.5rem;">🎨 Design System & Prototype Gallery</h3>
+            <div class="design-system-block">
+                <p><strong>🔹 Figma Design System:</strong> UI Elements, Loaders, Animated Buttons, reusable components</p>
+                <div style="font-size: 0.75rem; word-break: break-all; margin: 6px 0;">
+                    <a href="https://www.figma.com/proto/J8gBhLvrIChYiGRUrDMDQP/DesIgn-System?node-id=1-2&scaling=min-zoom" target="_blank">UI Elements →</a> &nbsp;|&nbsp;
+                    <a href="https://www.figma.com/proto/J8gBhLvrIChYiGRUrDMDQP/DesIgn-System?node-id=25-138" target="_blank">Loader Components →</a> &nbsp;|&nbsp;
+                    <a href="https://www.figma.com/proto/J8gBhLvrIChYiGRUrDMDQP/DesIgn-System?node-id=43-3" target="_blank">Moving Buttons →</a>
+                </div>
+                <hr>
+                <p><strong>🔹 Travel / Finance prototypes:</strong></p>
+                <div class="clients-grid">
+                    <a class="project-url" style="background:#EFF3F6;" href="https://www.figma.com/design/rnUmornZSZ6oOzRSltJcNb/Desktop---Aman-Travels-8.1?node-id=9788-2125" target="_blank">GRNconnect Desktop</a>
+                    <a class="project-url" style="background:#EFF3F6;" href="https://www.figma.com/design/0HQwUmwxPmD7QwwbJkQ1Hr/Inner-Pages---Aman-Travels-8.1?node-id=3793-2" target="_blank">GRNconnect Mobile</a>
+                    <a class="project-url" style="background:#EFF3F6;" href="https://www.figma.com/design/PI9EsWhapQfZFmOL5A6EpZ/Fintrust?node-id=0-1" target="_blank">Fintrust MF App</a>
+                </div>
+                <p style="margin-top: 12px;"><strong>🔹 EHR Healthcare Prototypes (Adobe XD):</strong></p>
+                <div>
+                    <a class="project-url" href="https://xd.adobe.com/view/65f671f5-c8ab-447d-9a36-97ce08806068-30a5/" target="_blank">EHR System</a>
+                    <a class="project-url" href="https://xd.adobe.com/view/be7ecdea-14bd-4496-a18f-54cac2a78ed0-eb2d/" target="_blank">Patient Portal</a>
+                    <a class="project-url" href="https://xd.adobe.com/view/57fa3cbf-d5f7-456a-88f5-426fc01568f2-02a9/" target="_blank">Portal Mobile</a>
+                </div>
+            </div>
+
+            <!-- clientele summary -->
+            <h3 class="section-title-main" style="margin-top: 1rem;">🤝 Key Clients & Platforms</h3>
+            <div class="clients-grid" style="margin-bottom: 1rem;">
+                <span class="client-badge">Techwave Consulting</span>
+                <span class="client-badge">Edvak Health</span>
+                <span class="client-badge">Sancara Shampad</span>
+                <span class="client-badge">Splash BI</span>
+                <span class="client-badge">BVM Consultancy</span>
+                <span class="client-badge">CtrlAltFIX</span>
+                <span class="client-badge">Bravemount</span>
+                <span class="client-badge">Vensoft</span>
+                <span class="client-badge">Wisdom IT</span>
+                <span class="client-badge">Athensys</span>
+                <span class="client-badge">Aivah Solutions</span>
+            </div>
+
+            <hr>
+            <div style="font-size:0.8rem; color:#475569; text-align:center; padding-top: 0.5rem;">
+                📍 Address: H No : 4-216A, Bharadwaj Colony, Surangal, Moinabad Municipality, Rangareddy - 501004
+            </div>
+        </div>
+    </div>
+    <footer style="padding: 1rem; background:#F8FAFE; border-top:1px solid #E2E8F0;">
+        ⚡ Portfolio: <a href="https://www.behance.net/rajeshwerm" target="_blank">Behance</a> · <a href="https://dribbble.com/Rajeshwer1979" target="_blank">Dribbble</a> · <a href="https://github.com/rajeshwer1979" target="_blank">GitHub</a> · Over 16 years of design excellence, AI-enhanced UX, responsive front-end expertise.
+    </footer>
+</div>
+</body>
+</html>
